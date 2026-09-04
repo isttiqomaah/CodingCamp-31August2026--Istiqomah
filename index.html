@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Life Dashboard</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+
+    <!-- ─── HEADER ─────────────────────────────────────────────── -->
+    <header class="header">
+      <div class="header__left">
+        <h1 class="greeting" id="greeting">Good Morning</h1>
+        <p class="datetime" id="datetime"></p>
+      </div>
+      <div class="header__right">
+        <button class="btn btn--icon" id="nameBtn" title="Set your name">✏️</button>
+        <button class="btn btn--icon" id="themeToggle" title="Toggle theme">🌙</button>
+      </div>
+    </header>
+
+    <!-- ─── NAME MODAL ─────────────────────────────────────────── -->
+    <div class="modal-overlay" id="nameModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <div class="modal">
+        <h2 id="modalTitle">What's your name?</h2>
+        <input
+          type="text"
+          id="nameInput"
+          class="input"
+          placeholder="Enter your name…"
+          maxlength="30"
+          autocomplete="off"
+        />
+        <div class="modal__actions">
+          <button class="btn btn--primary" id="nameSave">Save</button>
+          <button class="btn btn--ghost" id="nameCancel">Cancel</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ─── MAIN CONTENT ───────────────────────────────────────── -->
+    <main class="dashboard">
+
+      <!-- Focus Timer -->
+      <section class="card" aria-labelledby="timerHeading">
+        <h2 class="card__title" id="timerHeading">🍅 Focus Timer</h2>
+        <div class="timer" id="timerDisplay" aria-live="polite">25:00</div>
+        <div class="timer__controls">
+          <button class="btn btn--primary" id="timerStart">Start</button>
+          <button class="btn btn--secondary" id="timerStop">Stop</button>
+          <button class="btn btn--ghost" id="timerReset">Reset</button>
+        </div>
+      </section>
+
+      <!-- To-Do List -->
+      <section class="card card--wide" aria-labelledby="todoHeading">
+        <h2 class="card__title" id="todoHeading">✅ To-Do List</h2>
+        <form class="todo-form" id="todoForm" novalidate>
+          <input
+            type="text"
+            id="todoInput"
+            class="input"
+            placeholder="Add a new task…"
+            autocomplete="off"
+            maxlength="120"
+            aria-label="New task"
+          />
+          <button type="submit" class="btn btn--primary">Add</button>
+        </form>
+        <p class="error-msg" id="todoError" role="alert" aria-live="assertive"></p>
+        <ul class="todo-list" id="todoList" aria-label="Task list"></ul>
+        <p class="empty-state" id="todoEmpty">No tasks yet. Add one above! 🎯</p>
+      </section>
+
+      <!-- Quick Links -->
+      <section class="card card--wide" aria-labelledby="linksHeading">
+        <h2 class="card__title" id="linksHeading">🔗 Quick Links</h2>
+        <form class="links-form" id="linksForm" novalidate>
+          <input
+            type="text"
+            id="linkName"
+            class="input"
+            placeholder="Label (e.g. GitHub)"
+            maxlength="30"
+            aria-label="Link label"
+          />
+          <input
+            type="url"
+            id="linkUrl"
+            class="input"
+            placeholder="URL (e.g. https://github.com)"
+            aria-label="Link URL"
+          />
+          <button type="submit" class="btn btn--primary">Add</button>
+        </form>
+        <p class="error-msg" id="linksError" role="alert" aria-live="assertive"></p>
+        <div class="links-grid" id="linksGrid" aria-label="Quick links"></div>
+        <p class="empty-state" id="linksEmpty">No links yet. Add your favourites! 🌐</p>
+      </section>
+
+    </main>
+
+    <script src="js/script.js"></script>
+  </body>
+</html>
